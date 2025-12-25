@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio completo do Restaurante Sabor & Arte">
+  <title>Cardápio - Sabor & Arte</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Header/Navegação -->
+<header class="header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍝</span>
+          <span class="logo-text">Sabor & Arte</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html" class="active">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+          <li><a href="carrinho.html" class="btn-carrinho">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Cardápio -->
+<section class="page-hero cardapio-hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <h1 class="page-title">Nosso Cardápio</h1>
+    <p class="page-subtitle">Sabores autênticos da Itália</p>
+  </div>
+</section>
+
+<!-- Filtros de Categoria -->
+<section class="filtros">
+  <div class="container">
+    <div class="filtros-lista">
+      <button class="filtro-btn active" data-categoria="todas">Todas</button>
+      <button class="filtro-btn" data-categoria="entradas">Entradas</button>
+      <button class="filtro-btn" data-categoria="massas">Massas</button>
+      <button class="filtro-btn" data-categoria="risotos">Risotos</button>
+      <button class="filtro-btn" data-categoria="pizzas">Pizzas</button>
+      <button class="filtro-btn" data-categoria="carnes">Carnes</button>
+      <button class="filtro-btn" data-categoria="sobremesas">Sobremesas</button>
+      <button class="filtro-btn" data-categoria="bebidas">Bebidas</button>
+    </div>
+  </div>
+</section>
+
+<!-- Cardápio -->
+<section class="cardapio-section">
+  <div class="container">
+    <!-- Entradas -->
+    <div class="categoria-section" data-categoria="entradas">
+      <h2 class="categoria-titulo">🥗 Entradas</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&h=400&fit=crop" alt="Bruschetta">
+          </div>
+          <div class="prato-info">
+            <h3>Bruschetta Tradizionale</h3>
+            <p>Pão italiano tostado com tomates frescos, manjericão, alho e azeite extra virgem</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 18,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Bruschetta Tradizionale', 18.90, 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1608877907149-a206d75ba011?w=600&h=400&fit=crop" alt="Carpaccio">
+          </div>
+          <div class="prato-info">
+            <h3>Carpaccio de Carne</h3>
+            <p>Finas fatias de carne bovina com rúcula, parmesão e alcaparras</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 32,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Carpaccio de Carne', 32.90, 'https://images.unsplash.com/photo-1608877907149-a206d75ba011?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=400&fit=crop" alt="Salada Caprese">
+          </div>
+          <div class="prato-info">
+            <h3>Salada Caprese</h3>
+            <p>Tomate, mussarela de búfala, manjericão fresco e azeite especial</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 28,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Salada Caprese', 28.90, 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Massas -->
+    <div class="categoria-section" data-categoria="massas">
+      <h2 class="categoria-titulo">🍝 Massas</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&h=400&fit=crop" alt="Lasanha">
+          </div>
+          <div class="prato-info">
+            <h3>Lasanha Bolonhesa</h3>
+            <p>Camadas de massa fresca, molho bolonhesa artesanal e queijos selecionados</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 48,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Lasanha Bolonhesa', 48.90, 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=600&h=400&fit=crop" alt="Carbonara">
+          </div>
+          <div class="prato-info">
+            <h3>Spaghetti Carbonara</h3>
+            <p>Massa al dente com molho cremoso de ovos, bacon italiano e parmesão</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 42,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Spaghetti Carbonara', 42.90, 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1622973536968-3ead9e780960?w=600&h=400&fit=crop" alt="Penne Arrabiata">
+          </div>
+          <div class="prato-info">
+            <h3>Penne Arrabiata</h3>
+            <p>Penne com molho de tomate picante, alho, pimenta e manjericão</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 38,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Penne Arrabiata', 38.90, 'https://images.unsplash.com/photo-1622973536968-3ead9e780960?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=400&fit=crop" alt="Ravioli">
+          </div>
+          <div class="prato-info">
+            <h3>Ravioli de Ricota</h3>
+            <p>Ravioli recheado com ricota e espinafre ao molho de manteiga e sálvia</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 45,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Ravioli de Ricota', 45.90, 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Risotos -->
+    <div class="categoria-section" data-categoria="risotos">
+      <h2 class="categoria-titulo">🍚 Risotos</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?w=600&h=400&fit=crop" alt="Risotto Funghi">
+          </div>
+          <div class="prato-info">
+            <h3>Risotto de Funghi</h3>
+            <p>Arroz arbóreo cremoso com mix de cogumelos frescos e parmesão</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 52,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Risotto de Funghi', 52.90, 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1633964913295-ceb43826e36f?w=600&h=400&fit=crop" alt="Risotto Camarão">
+          </div>
+          <div class="prato-info">
+            <h3>Risotto de Camarão</h3>
+            <p>Arroz cremoso com camarões frescos, tomate seco e ervas finas</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 58,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Risotto de Camarão', 58.90, 'https://images.unsplash.com/photo-1633964913295-ceb43826e36f?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pizzas -->
+    <div class="categoria-section" data-categoria="pizzas">
+      <h2 class="categoria-titulo">🍕 Pizzas</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=600&h=400&fit=crop" alt="Margherita">
+          </div>
+          <div class="prato-info">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela de búfala, manjericão fresco e azeite</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 45,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Pizza Margherita', 45.90, 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&h=400&fit=crop" alt="Quattro Formaggi">
+          </div>
+          <div class="prato-info">
+            <h3>Quattro Formaggi</h3>
+            <p>Mix de quatro queijos nobres: gorgonzola, parmesão, provolone e mussarela</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 52,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Quattro Formaggi', 52.90, 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=600&h=400&fit=crop" alt="Pepperoni">
+          </div>
+          <div class="prato-info">
+            <h3>Pizza Pepperoni</h3>
+            <p>Molho de tomate, mussarela e fatias generosas de pepperoni italiano</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 48,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Pizza Pepperoni', 48.90, 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carnes -->
+    <div class="categoria-section" data-categoria="carnes">
+      <h2 class="categoria-titulo">🥩 Carnes</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&h=400&fit=crop" alt="Ossobuco">
+          </div>
+          <div class="prato-info">
+            <h3>Ossobuco alla Milanese</h3>
+            <p>Tradicional ossobuco cozido lentamente com legumes e risotto</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 68,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Ossobuco alla Milanese', 68.90, 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=400&fit=crop" alt="Piccata">
+          </div>
+          <div class="prato-info">
+            <h3>Piccata de Frango</h3>
+            <p>Medalhões de frango ao molho de limão siciliano e alcaparras</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 46,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Piccata de Frango', 46.90, 'https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sobremesas -->
+    <div class="categoria-section" data-categoria="sobremesas">
+      <h2 class="categoria-titulo">🍰 Sobremesas</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&h=400&fit=crop" alt="Tiramisu">
+          </div>
+          <div class="prato-info">
+            <h3>Tiramisu Clássico</h3>
+            <p>Sobremesa italiana com café, mascarpone e biscoitos savoiardi</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 22,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Tiramisu Clássico', 22.90, 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop" alt="Panna Cotta">
+          </div>
+          <div class="prato-info">
+            <h3>Panna Cotta</h3>
+            <p>Cremosa panna cotta com calda de frutas vermelhas</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 18,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Panna Cotta', 18.90, 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=400&fit=crop" alt="Cannoli">
+          </div>
+          <div class="prato-info">
+            <h3>Cannoli Siciliano</h3>
+            <p>Tradicional casquinha crocante recheada com ricota doce</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 16,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Cannoli Siciliano', 16.90, 'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bebidas -->
+    <div class="categoria-section" data-categoria="bebidas">
+      <h2 class="categoria-titulo">🍷 Bebidas</h2>
+      <div class="cardapio-grid">
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop" alt="Vinho Tinto">
+          </div>
+          <div class="prato-info">
+            <h3>Vinho Tinto Italiano</h3>
+            <p>Seleção de vinhos tintos italianos da Toscana (taça)</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 28,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Vinho Tinto Italiano', 28.90, 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1566508537715-8639b5be2e7a?w=600&h=400&fit=crop" alt="Limonada">
+          </div>
+          <div class="prato-info">
+            <h3>Limonada Siciliana</h3>
+            <p>Refrescante limonada com limões sicilianos e hortelã</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 12,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Limonada Siciliana', 12.90, 'https://images.unsplash.com/photo-1566508537715-8639b5be2e7a?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prato-card">
+          <div class="prato-imagem">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&h=400&fit=crop" alt="Café Espresso">
+          </div>
+          <div class="prato-info">
+            <h3>Café Espresso</h3>
+            <p>Autêntico café espresso italiano</p>
+            <div class="prato-footer">
+              <span class="preco">R$ 8,90</span>
+              <button class="btn-add" onclick="adicionarAoCarrinho('Café Espresso', 8.90, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&h=400&fit=crop')">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sabor & Arte</h4>
+        <p>Restaurante Italiano com tradição e qualidade desde 1985.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>📞 (11) 3456-7890</li>
+          <li>📱 (11) 98765-4321</li>
+          <li>✉️ contato@saborarte.com.br</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg-Sex: 11:00 - 23:00</li>
+          <li>Sáb-Dom: 12:00 - 00:00</li>
+          <li>Delivery disponível</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sabor & Arte - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/cardapio.js"></script>
+<script src="js/carrinho.js"></script>
+</body>
+</html>

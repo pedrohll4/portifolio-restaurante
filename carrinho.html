@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carrinho de compras - Sabor & Arte">
+  <title>Carrinho - Sabor & Arte</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Header/Navegação -->
+<header class="header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍝</span>
+          <span class="logo-text">Sabor & Arte</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+          <li><a href="carrinho.html" class="btn-carrinho active">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Carrinho Section -->
+<section class="carrinho-page">
+  <div class="container">
+    <h1 class="page-title">Meu Carrinho</h1>
+
+    <div class="carrinho-content">
+      <!-- Lista de Itens -->
+      <div class="carrinho-items">
+        <div id="carrinhoVazio" class="carrinho-vazio">
+          <div class="vazio-icon">🛒</div>
+          <h2>Seu carrinho está vazio</h2>
+          <p>Adicione deliciosos pratos do nosso cardápio</p>
+          <a href="cardapio.html" class="btn btn-primary">Ver Cardápio</a>
+        </div>
+
+        <div id="carrinhoLista" class="carrinho-lista" style="display: none;">
+          <!-- Itens serão inseridos aqui via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Resumo do Pedido -->
+      <div class="carrinho-resumo" id="carrinhoResumo" style="display: none;">
+        <h3>Resumo do Pedido</h3>
+
+        <div class="resumo-linha">
+          <span>Subtotal:</span>
+          <span id="subtotal">R$ 0,00</span>
+        </div>
+
+        <div class="resumo-linha">
+          <span>Taxa de Entrega:</span>
+          <span id="taxaEntrega">R$ 10,00</span>
+        </div>
+
+        <div class="resumo-linha total">
+          <span>Total:</span>
+          <span id="total">R$ 0,00</span>
+        </div>
+
+        <div class="cupom-section">
+          <input type="text" id="cupomInput" placeholder="Código de cupom">
+          <button class="btn-cupom" onclick="aplicarCupom()">Aplicar</button>
+        </div>
+        <div id="cupomMensagem" class="cupom-mensagem"></div>
+
+        <button class="btn btn-finalizar" onclick="irParaCheckout()">
+          Finalizar Pedido
+        </button>
+
+        <button class="btn btn-continuar" onclick="window.location.href='cardapio.html'">
+          Continuar Comprando
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sabor & Arte</h4>
+        <p>Restaurante Italiano com tradição e qualidade desde 1985.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>📞 (11) 3456-7890</li>
+          <li>📱 (11) 98765-4321</li>
+          <li>✉️ contato@saborarte.com.br</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg-Sex: 11:00 - 23:00</li>
+          <li>Sáb-Dom: 12:00 - 00:00</li>
+          <li>Delivery disponível</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sabor & Arte - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/carrinho.js"></script>
+<script>
+  // Atualiza carrinho ao carregar a página
+  window.addEventListener('DOMContentLoaded', atualizarPaginaCarrinho);
+</script>
+</body>
+</html>

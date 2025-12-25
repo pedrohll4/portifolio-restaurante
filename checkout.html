@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Finalizar pedido - Sabor & Arte">
+  <title>Checkout - Sabor & Arte</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Header/Navegação -->
+<header class="header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍝</span>
+          <span class="logo-text">Sabor & Arte</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+          <li><a href="carrinho.html" class="btn-carrinho">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Checkout Section -->
+<section class="checkout-page">
+  <div class="container">
+    <h1 class="page-title">Finalizar Pedido</h1>
+
+    <!-- Steps -->
+    <div class="checkout-steps">
+      <div class="step active">
+        <div class="step-number">1</div>
+        <span>Dados</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="step2">
+        <div class="step-number">2</div>
+        <span>Entrega</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="step3">
+        <div class="step-number">3</div>
+        <span>Pagamento</span>
+      </div>
+    </div>
+
+    <div class="checkout-content">
+      <!-- Formulário -->
+      <div class="checkout-form">
+        <!-- Etapa 1: Dados Pessoais -->
+        <div class="form-step active" id="formStep1">
+          <h2>Dados Pessoais</h2>
+
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" required placeholder="Seu nome completo">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">Telefone *</label>
+              <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="proximaEtapa(2)">Continuar</button>
+        </div>
+
+        <!-- Etapa 2: Endereço de Entrega -->
+        <div class="form-step" id="formStep2">
+          <h2>Endereço de Entrega</h2>
+
+          <div class="tipo-entrega">
+            <label class="radio-option">
+              <input type="radio" name="tipoEntrega" value="delivery" checked onchange="toggleEnderecoEntrega()">
+              <span>🛵 Delivery</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="tipoEntrega" value="retirada" onchange="toggleEnderecoEntrega()">
+              <span>🏪 Retirar no Local</span>
+            </label>
+          </div>
+
+          <div id="enderecoForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cep">CEP *</label>
+                <input type="text" id="cep" required placeholder="00000-000">
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-secondary" onclick="buscarCEP()">Buscar</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="endereco">Endereço *</label>
+              <input type="text" id="endereco" required placeholder="Rua, Avenida...">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="numero">Número *</label>
+                <input type="text" id="numero" required placeholder="123">
+              </div>
+
+              <div class="form-group">
+                <label for="complemento">Complemento</label>
+                <input type="text" id="complemento" placeholder="Apto, Bloco...">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bairro">Bairro *</label>
+                <input type="text" id="bairro" required placeholder="Seu bairro">
+              </div>
+
+              <div class="form-group">
+                <label for="cidade">Cidade *</label>
+                <input type="text" id="cidade" required placeholder="Sua cidade">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button class="btn btn-secondary" onclick="voltarEtapa(1)">Voltar</button>
+            <button class="btn btn-primary" onclick="proximaEtapa(3)">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Etapa 3: Pagamento -->
+        <div class="form-step" id="formStep3">
+          <h2>Forma de Pagamento</h2>
+
+          <div class="pagamento-opcoes">
+            <label class="payment-option">
+              <input type="radio" name="pagamento" value="cartao" checked onchange="togglePagamentoForm()">
+              <div class="payment-content">
+                <span class="payment-icon">💳</span>
+                <span>Cartão de Crédito</span>
+              </div>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="pagamento" value="pix" onchange="togglePagamentoForm()">
+              <div class="payment-content">
+                <span class="payment-icon">📱</span>
+                <span>PIX</span>
+              </div>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="pagamento" value="dinheiro" onchange="togglePagamentoForm()">
+              <div class="payment-content">
+                <span class="payment-icon">💵</span>
+                <span>Dinheiro</span>
+              </div>
+            </label>
+          </div>
+
+          <div id="cartaoForm" class="payment-form">
+            <div class="form-group">
+              <label for="numeroCartao">Número do Cartão *</label>
+              <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" maxlength="19">
+            </div>
+
+            <div class="form-group">
+              <label for="nomeCartao">Nome no Cartão *</label>
+              <input type="text" id="nomeCartao" placeholder="Nome como impresso no cartão">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="validade">Validade *</label>
+                <input type="text" id="validade" placeholder="MM/AA" maxlength="5">
+              </div>
+
+              <div class="form-group">
+                <label for="cvv">CVV *</label>
+                <input type="text" id="cvv" placeholder="000" maxlength="3">
+              </div>
+            </div>
+          </div>
+
+          <div id="pixForm" class="payment-form" style="display: none;">
+            <div class="pix-info">
+              <p>Após confirmar o pedido, você receberá o QR Code do PIX para pagamento.</p>
+            </div>
+          </div>
+
+          <div id="dinheiroForm" class="payment-form" style="display: none;">
+            <div class="form-group">
+              <label for="troco">Precisa de troco para quanto?</label>
+              <input type="text" id="troco" placeholder="R$ 0,00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" rows="4" placeholder="Alguma observação sobre seu pedido?"></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button class="btn btn-secondary" onclick="voltarEtapa(2)">Voltar</button>
+            <button class="btn btn-success" onclick="finalizarPedido()">Finalizar Pedido</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumo do Pedido -->
+      <div class="checkout-resumo">
+        <h3>Resumo do Pedido</h3>
+
+        <div class="resumo-itens" id="resumoItens">
+          <!-- Itens serão inseridos aqui -->
+        </div>
+
+        <div class="resumo-valores">
+          <div class="valor-linha">
+            <span>Subtotal:</span>
+            <span id="checkoutSubtotal">R$ 0,00</span>
+          </div>
+          <div class="valor-linha">
+            <span>Taxa de Entrega:</span>
+            <span id="checkoutTaxa">R$ 10,00</span>
+          </div>
+          <div class="valor-linha total">
+            <span>Total:</span>
+            <span id="checkoutTotal">R$ 0,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Confirmação -->
+<div id="modalConfirmacao" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="success-icon">✅</div>
+      <h2>Pedido Realizado com Sucesso!</h2>
+    </div>
+    <div class="modal-body">
+      <p>Seu pedido foi recebido e está sendo preparado.</p>
+      <div class="pedido-numero">
+        <strong>Número do Pedido:</strong>
+        <span id="numeroPedido">--</span>
+      </div>
+      <p class="tempo-estimado">Tempo estimado de entrega: <strong>40-50 minutos</strong></p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="voltarInicio()">Voltar ao Início</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sabor & Arte</h4>
+        <p>Restaurante Italiano com tradição e qualidade desde 1985.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="index.html#localizacao">Localização</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>📞 (11) 3456-7890</li>
+          <li>📱 (11) 98765-4321</li>
+          <li>✉️ contato@saborarte.com.br</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg-Sex: 11:00 - 23:00</li>
+          <li>Sáb-Dom: 12:00 - 00:00</li>
+          <li>Delivery disponível</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sabor & Arte - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/carrinho.js"></script>
+<script>
+  // Carrega resumo do pedido ao abrir a página
+  window.addEventListener('DOMContentLoaded', carregarResumoCheckout);
+</script>
+</body>
+</html>

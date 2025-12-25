@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Restaurante Sabor & Arte - Comida italiana autêntica com ingredientes frescos">
+  <title>Sabor & Arte - Restaurante Italiano</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Header/Navegação -->
+<header class="header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍝</span>
+          <span class="logo-text">Sabor & Arte</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="carrinho.html" class="btn-carrinho">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title animate-fade-in">Sabor Autêntico Italiano</h1>
+    <p class="hero-subtitle animate-fade-in-delay">Tradição, qualidade e paixão em cada prato</p>
+    <div class="hero-buttons animate-fade-in-delay-2">
+      <a href="cardapio.html" class="btn btn-primary">Ver Cardápio</a>
+      <a href="#destaques" class="btn btn-secondary">Pratos em Destaque</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Role para baixo</span>
+    <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<!-- Pratos em Destaque -->
+<section class="destaques" id="destaques">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Pratos em Destaque</h2>
+      <p class="section-subtitle">Sabores que conquistam corações</p>
+    </div>
+
+    <div class="destaques-grid">
+      <!-- Destaque 1 -->
+      <div class="destaque-card">
+        <div class="destaque-image">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=600&fit=crop"
+               alt="Lasanha Bolonhesa">
+          <div class="destaque-badge">Mais Pedido</div>
+        </div>
+        <div class="destaque-content">
+          <h3>Lasanha Bolonhesa</h3>
+          <p>Camadas de massa fresca, molho bolonhesa artesanal e queijos selecionados</p>
+          <div class="destaque-footer">
+            <span class="preco">R$ 48,90</span>
+            <button class="btn-add-cart" onclick="adicionarAoCarrinho('Lasanha Bolonhesa', 48.90, 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=600&fit=crop')">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque 2 -->
+      <div class="destaque-card">
+        <div class="destaque-image">
+          <img src="https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?w=800&h=600&fit=crop"
+               alt="Risotto de Funghi">
+          <div class="destaque-badge special">Chef Especial</div>
+        </div>
+        <div class="destaque-content">
+          <h3>Risotto de Funghi</h3>
+          <p>Arroz arbóreo cremoso com mix de cogumelos frescos e parmesão</p>
+          <div class="destaque-footer">
+            <span class="preco">R$ 52,90</span>
+            <button class="btn-add-cart" onclick="adicionarAoCarrinho('Risotto de Funghi', 52.90, 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?w=800&h=600&fit=crop')">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque 3 -->
+      <div class="destaque-card">
+        <div class="destaque-image">
+          <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&h=600&fit=crop"
+               alt="Pizza Margherita">
+          <div class="destaque-badge">Tradicional</div>
+        </div>
+        <div class="destaque-content">
+          <h3>Pizza Margherita</h3>
+          <p>Clássica pizza com molho de tomate, mussarela de búfala e manjericão fresco</p>
+          <div class="destaque-footer">
+            <span class="preco">R$ 45,90</span>
+            <button class="btn-add-cart" onclick="adicionarAoCarrinho('Pizza Margherita', 45.90, 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&h=600&fit=crop')">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque 4 -->
+      <div class="destaque-card">
+        <div class="destaque-image">
+          <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&h=600&fit=crop"
+               alt="Tiramisu">
+          <div class="destaque-badge special">Sobremesa</div>
+        </div>
+        <div class="destaque-content">
+          <h3>Tiramisu Clássico</h3>
+          <p>Sobremesa italiana com café, mascarpone e biscoitos savoiardi</p>
+          <div class="destaque-footer">
+            <span class="preco">R$ 22,90</span>
+            <button class="btn-add-cart" onclick="adicionarAoCarrinho('Tiramisu Clássico', 22.90, 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&h=600&fit=crop')">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-cardapio">
+      <a href="cardapio.html" class="btn btn-large">Ver Cardápio Completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre Resumo -->
+<section class="sobre-resumo">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-imagem">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
+             alt="Interior do restaurante">
+      </div>
+      <div class="sobre-texto">
+        <h2>Uma História de Sabor</h2>
+        <p class="destaque-texto">Desde 1985 trazendo o melhor da culinária italiana para sua mesa</p>
+        <p>O Sabor & Arte nasceu da paixão de nossa família pela gastronomia italiana autêntica. Com receitas tradicionais passadas de geração em geração, criamos pratos que celebram os sabores da Itália com ingredientes frescos e de qualidade.</p>
+        <p>Nosso compromisso é proporcionar uma experiência única, onde cada refeição é preparada com carinho e dedicação, mantendo viva a tradição culinária italiana.</p>
+        <a href="sobre.html" class="btn btn-outline">Conheça Nossa História</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Localização -->
+<section class="localizacao" id="localizacao">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Visite-nos</h2>
+      <p class="section-subtitle">Estamos esperando por você</p>
+    </div>
+
+    <div class="localizacao-grid">
+      <div class="localizacao-info">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Endereço</h3>
+          <p>Rua das Flores, 123<br>Jardim Europa<br>São Paulo - SP<br>CEP: 01234-567</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Horário de Funcionamento</h3>
+          <p><strong>Segunda a Sexta:</strong> 11:00 - 23:00<br>
+            <strong>Sábado e Domingo:</strong> 12:00 - 00:00<br>
+            <strong>Feriados:</strong> 12:00 - 22:00</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <h3>Contato</h3>
+          <p><strong>Telefone:</strong> (11) 3456-7890<br>
+            <strong>WhatsApp:</strong> (11) 98765-4321<br>
+            <strong>Email:</strong> contato@saborarte.com.br</p>
+        </div>
+      </div>
+
+      <div class="localizacao-mapa">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975746826677!2d-46.67294668502196!3d-23.561684884682944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sabor & Arte</h4>
+        <p>Restaurante Italiano com tradição e qualidade desde 1985.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>📞 (11) 3456-7890</li>
+          <li>📱 (11) 98765-4321</li>
+          <li>✉️ contato@saborarte.com.br</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg-Sex: 11:00 - 23:00</li>
+          <li>Sáb-Dom: 12:00 - 00:00</li>
+          <li>Delivery disponível</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sabor & Arte - Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/carrinho.js"></script>
+</body>
+</html>
